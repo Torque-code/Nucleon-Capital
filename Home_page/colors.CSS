@@ -28,6 +28,8 @@
 
 .quote1 {
     color: aliceblue;
+    transition: 0.3s ease;
+
 }
 
 .quote2 {
@@ -39,6 +41,8 @@
     background: #4894db;
     color: white;
     opacity: 25%;
+    transition: ease-in-out;
+    transition-duration: 1s;
     
 }
 
@@ -56,22 +60,70 @@
 }
 
 .section4 {
-    background-image: url(coins.png);
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     opacity: 100%;
+    background-color: bisque;
 
 }
 
-.quote3 {
-    color: aliceblue;
+.quote3:hover {
+    color: black;
     opacity: 80%;
+    transition: ease-in-out;
+    transition-duration: 1s;
 }
 
-.quote4 {
-    color: aliceblue;
+.quote4:hover {
+    color: black;
     opacity: 80%;
+    transition: ease-in-out;
+    transition-duration: 1s;
 
+}
+
+.section5 {
+    background-image: url(coins.png);
+     height: 400px;
+    background-size: cover;      /* Scales to fill section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    height: 500px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.quote5{
+    size: 50px;
+    color: beige;
+    background-color: black;
+    opacity: 50%;
+}
+
+.Journey {
+    border-color: blanchedalmond;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    align-self: flex-end;
+    margin-top: auto;
+
+}
+
+.footer {
+    background-color: blue;
+    border-color: blanchedalmond;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    align-self: flex-end;
+    margin-top: auto;
 }
