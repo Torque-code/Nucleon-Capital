@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NUCLEON CAPITAL</title>
+  <style>
+    /* ===== Keyframes from your CSS ===== */
+    @keyframes fade-in-up {
+      0% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float-soft {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes glow-pulse {
+      0% { box-shadow: 0 12px 25px rgba(14, 165, 233, 0.35); }
+      50% { box-shadow: 0 18px 40px rgba(34, 197, 94, 0.5); }
+      100% { box-shadow: 0 12px 25px rgba(14, 165, 233, 0.35); }
+    }
+
+    /* ===== Your Exact Base Styles ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+      animation: fade-in-up 0.7s ease-out;
+    }
+
+    /* ===== Your Exact Accent Colors ===== */
+    :root {
+      --primary: #0ea5e9;
+      --primary-soft: #082f49;
+      --secondary: #22c55e;
+      --muted: #6b7280;
+      --card-bg: #020617;
+      --border-subtle: #1f2933;
+    }
+
+    /* ===== Layout with Your Styles ===== */
+    section { 
+      padding: 48px 8vw; 
+      transition: background 0.4s ease;
+    }
+
+    /* ===== Navigation (section1) ===== */
+    .section1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: radial-gradient(circle at top left, #0f172a 0, #020617 55%);
+      border-bottom: 1px solid var(--border-subtle);
+      animation: fade-in-up 0.7s ease-out;
+      padding: 24px;
+      border-radius: 16px;
+      margin: 24px 0;
+    }
+    .companyname {
+      font-size: 24px;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      color: #f9fafb;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+    .companyname:hover { color: var(--primary); }
+
+    .nav-buttons button {
+      border: 1px solid transparent;
+      background: transparent;
+      color: #e5e7eb;
+      padding: 8px 16px;
+      margin-left: 8px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    }
+    .nav-buttons button:hover {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+      color: #f9fafb;
+      transform: translateY(-1px);
+    }
+
+    /* ===== View Selector ===== */
+    .view-selector {
+      text-align: center;
+      padding: 32px;
+      background: #020617;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      margin: 24px 0;
+    }
+    .view-selector select {
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .view-selector select:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ===== Content Views ===== */
+    .content-section {
+      display: none;
+      animation: fade-in-up 0.5s ease-out;
+      background: #020617;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      margin: 24px 0;
+      padding: 48px;
+      transition: all 0.3s ease;
+    }
+    .content-section.active { 
+      display: block; 
+    }
+    .content-section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      border-color: var(--primary-soft);
+    }
+
+    /* ===== AUM View ===== */
+    .aum-metric h2 {
+      font-size: 48px;
+      color: var(--primary);
+      margin: 16px 0;
+      transition: color 0.3s ease;
+    }
+    .aum-change { 
+      color: var(--secondary); 
+      font-size: 18px; 
+    }
+
+    /* ===== P&L View ===== */
+    .pnl-section select {
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background: #020617;
+      color: #e5e7eb;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .pnl-value {
+      font-size: 56px;
+      color: var(--secondary);
+      margin: 24px 0;
+      font-weight: 700;
+    }
+
+    /* ===== Top Performers ===== */
+    .leaderboard ol {
+      list-style: none;
+      padding: 0;
+    }
+    .leaderboard li {
+      padding: 16px;
+      margin: 8px 0;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-subtle);
+    }
+    .leaderboard li:hover {
+      background: rgba(14, 165, 233, 0.15);
+      transform: translateX(8px);
+      border-color: var(--primary);
+    }
+
+    /* ===== CTA Button (Your Exact Styles) ===== */
+    .Journey {
+      padding: 12px 32px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--primary);
+      color: #020617;
+      box-shadow: 0 12px 25px rgba(14, 165, 233, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      animation: fade-in-up 1.2s ease-out;
+      margin-top: 24px;
+    }
+    .Journey:hover {
+      background: #38bdf8;
+      transform: translateY(-2px) scale(1.02);
+      animation: glow-pulse 1.5s ease-in-out infinite;
+    }
+
+    /* ===== Responsive (Your Exact Styles) ===== */
+    @media (max-width: 768px) {
+      .section1 { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 12px; 
+      }
+      section { padding: 24px 4vw; }
+      .content-section { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<section class="section1">
+  <h1 class="companyname">NUCLEON CAPITAL</h1>
+  <div class="nav-buttons">
+    <button class="Homebutton" onclick="showView('home')">Home</button>
+    <button class="Performancebutton" onclick="showView('performance')">Performance</button>
+  </div>
+</section>
+
+<!-- View Selector -->
+<section class="view-selector">
+  <label style="display: block; margin-bottom: 16px; font-size: 18px;">Choose View:</label>
+  <select id="viewOption" onchange="showSelectedView()">
+    <option value="aum">💰 Total AUM</option>
+    <option value="pnl">📈 P&L</option>
+    <option value="top">🏆 Top Performers</option>
+  </select>
+</section>
+
+<!-- Content Views -->
+<div id="contentArea">
+
+  <!-- AUM View -->
+  <section id="aumView" class="content-section active">
+    <h2>Total Assets Under Management</h2>
+    <div class="aum-metric">
+      <h2>$247.8M</h2>
+      <div class="aum-change">+12.4% this month ↑</div>
+    </div>
+  </section>
+
+  <!-- P&L View -->
+  <section id="pnlView" class="content-section">
+    <h2>Profit & Loss</h2>
+    <div class="pnl-section">
+      <label style="display: block; margin-bottom: 8px;">Time Period:</label>
+      <select id="timeperiod">
+        <option>Weekly</option>
+        <option selected>Monthly</option>
+        <option>Quarterly</option>
+        <option>Yearly</option>
+      </select>
+      <div class="pnl-value">+28.7%</div>
+      <button class="Journey" onclick="updatePNL()">🔄 Refresh Data</button>
+    </div>
+  </section>
+
+  <!-- Top Performers View -->
+  <section id="topView" class="content-section">
+    <h2>🏆 Top Performers</h2>
+    <div class="leaderboard">
+      <ol>
+        <li>🥇 John Doe - 98% (Equity L/S)</li>
+        <li>🥈 Jane Smith - 96% (Market Neutral)</li>
+        <li>🥉 Mike Johnson - 94% (Global Macro)</li>
+        <li>⭐ Sarah Wilson - 92% (Arbitrage)</li>
+      </ol>
+    </div>
+  </section>
+
+</div>
+
+<script>
+let pnlValue = 28.7;
+
+function showSelectedView() {
+  const option = document.getElementById("viewOption").value;
+  const sections = ["aumView", "pnlView", "topView"];
+  sections.forEach(id => {
+    document.getElementById(id).classList.remove("active");
+  });
+  document.getElementById(option + "View").classList.add("active");
+}
+
+function showView(view) {
+  document.getElementById("viewOption").value = view === 'home' ? 'aum' : 'top';
+  showSelectedView();
+}
+
+function updatePNL() {
+  pnlValue += (Math.random() - 0.5) * 2;
+  document.querySelector(".pnl-value").textContent = `+${pnlValue.toFixed(1)}%`;
+}
+</script>
+
+</body>
+</html>
